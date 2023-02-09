@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class bangun_ruang{
+            volume(){
+                
+            }
+        }
+        class Balok extends bangun_ruang{
+            p;
+            l;
+            t;
+
+            volume(){
+                return this.p * this.l * this.t
+            }
+        }
+        var balok1 = new Balok();
+        balok1.p = 30
+        balok1.l = 40
+        balok1.t = 50
+        document.write(" hasil rumus balok : " + balok1.volume() + '<br />')
+
+        class Kubus extends bangun_ruang{
+            s;
+            s;
+            s;
+            s;
+            
+            volume(){
+                return this.s * this.s * this.s * this.s
+            }
+        }
+        var kubus1 = new Kubus();
+        kubus1.s = 20
+        kubus1.s = 40
+        kubus1.s = 51
+        kubus1.s = 32
+        
+        document.write(" hasil rumus kubus :" + kubus1.volume() +'<br />')
+
+        class limas_segi_empat extends bangun_ruang{
+            luasAlas;
+            jumlah_luas_sisi_tegak;
+
+            volume(){
+                return this.luasAlas * this.jumlah_luas_sisi_tegak
+            }
+        }
+        var limas1 = new limas_segi_empat();
+        limas1.luasAlas = 10
+        limas1.jumlah_luas_sisi_tegak = 90
+
+        document.write(" hasil rumus limas :" + limas1.volume() + '<br />')
+
+        class tabung extends bangun_ruang{
+            π;
+            r;
+            t;
+
+            volume(){
+                return this.π * this.r * this.t
+            }
+        }
+        var tabung1 = new tabung();
+        tabung1.π = 11
+        tabung1.r = 10
+        tabung1.t = 20
+
+        document.write( " hasil rumus tabung :" + tabung1.volume())
+    </script>
+</body>
+</html>
