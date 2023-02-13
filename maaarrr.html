@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class ongkir {
+      #pajak = 500;
+      berat;
+      hitung_biaya (){
+        return this.berat + 1000;
+      }
+      hitung_total_biaya (){
+        return this.hitung_biaya () + this.pajak
+      }
+    }
+  var ongkir_sepedah = new ongkir ();
+  ongkir_sepedah.berat = 15;
+  ongkir_sepedah.#pajak = 100;
+  document.write (ongkir_sepedah.hitung_total_biaya());
+  </script>
+</body>
+</html>
