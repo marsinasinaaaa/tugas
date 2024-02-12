@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengambil Data</title>
+    <style>
+     .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid red;
+    border-bottom-color: #0823eb;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>AL QUR'AN</h1>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+    <script>
+        async function dapatkanSurat() {
+            try {
+                container.innerHTML = "<span class='loader'></span>";
+                const ambilData = await fetch("https://quran-api-id.vercel.app/surahs");
+                const dataAsli = await ambilData.json();
+                container.innerHTML = "";
+//   console.log(dataAsli);
+
+  dataAsli.forEach(element =>{
+
+    container.innerHTML+= `<p style="color
+    :blue; background:#ffc09f;">Nomor: ${element.number}</p>`
+    container.innerHTML+= `<p style="color
+    :blue; background:#FFCBC1;">Halaman: ${element.numberOfAyahs}</p>`
+    container.innerHTML+= `<p style="color
+    :blue; background:#FFE4E1;">Surah: ${element.name}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#FFE4B5;">Arti: ${element.translation}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#fcf5c7;">Diturunkan di: ${element.revelation}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#ffee93;">Isi: ${element.description}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#FBEDC9;">Audio: ${element.audio}</p>`
+    container.innerHTML+= '<hr style="width: 95%;">'
+  });
+
+            } catch (error) {
+                // alert("maaf salah");
+                container.innerHTML = "maaf salah kodenya"
+            }
+        }
+ dapatkanSurat();
+    </script>
+</body>
+</html>
