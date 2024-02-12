@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengambil Data</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        async function dapatkanSurat() {
+  const ambilData = await fetch("https://quran-api-id.vercel.app/surahs");
+  const dataAsli = await ambilData.json();
+//   console.log(dataAsli);
+  dataAsli.forEach(element =>{
+    container.innerHTML+= `<p style="color:blue; background:#ffc09f;">Nomor: ${element.number}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#FFCBC1;">Halaman: ${element.numberOfAyahs}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#FFE4E1;">Surah: ${element.name}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#FFE4B5;">Arti: ${element.translation}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#fcf5c7;">Diturunkan di: ${element.revelation}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#ffee93;">Isi: ${element.description}</p>`
+    container.innerHTML+= `<p style="color:blue; background:#FBEDC9;">Audio: ${element.audio}</p>`
+    container.innerHTML+= '<hr style="width: 95%;">'
+  });
+}
+ dapatkanSurat();
+    </script>
+</body>
+</html>
